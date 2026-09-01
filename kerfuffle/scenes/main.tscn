@@ -8,8 +8,6 @@
 [node name="Main" type="Node2D" unique_id=13857101]
 y_sort_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=318788712]
-
 [node name="Player" parent="." unique_id=590145339 instance=ExtResource("1_o5qli")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2046324669]

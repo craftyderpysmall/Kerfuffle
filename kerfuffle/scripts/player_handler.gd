@@ -13,7 +13,7 @@ var camera_lean := Vector2.ZERO
 var cursor_quadrant := 3
 
 func _process(delta: float) -> void:
-	play_camera_lean(direction, delta)
+	#play_camera_lean(direction, delta)
 	cursor_quadrant = get_quadrant(get_global_mouse_position(), global_position, cursor_quadrant)
 
 func _physics_process(_delta: float) -> void:
@@ -42,10 +42,10 @@ func play_anim(movement_state : String) -> void:
 		player_sprite.flip_h = true
 		player_sprite.play(movement_state + "R")
 
-func play_camera_lean(dir: Vector2, delta: float) -> void:
-	var target_lean := dir * lean_amount
-	camera_lean = camera_lean.lerp(target_lean, 1.0 - exp(-lean_speed * delta))
-	camera_2d.offset = camera_lean
+#func play_camera_lean(dir: Vector2, delta: float) -> void:
+	#var target_lean := dir * lean_amount
+	#camera_lean = camera_lean.lerp(target_lean, 1.0 - exp(-lean_speed * delta))
+	#camera_2d.offset = camera_lean
 
 # Mouse quadrants
 

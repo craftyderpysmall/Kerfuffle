@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://5dwg3go27mgb"]
+
+[ext_resource type="Script" uid="uid://cn6stq0vysadk" path="res://items/item_data.gd" id="1_sjkbl"]
+[ext_resource type="Texture2D" uid="uid://v1twrmo58xjb" path="res://assets/camera.png" id="1_tloao"]
+
+[resource]
+script = ExtResource("1_sjkbl")
+id = "base.item.mushroom_1"
+display_name = "Magic Mushroom"
+icon = ExtResource("1_tloao")
+metadata/_custom_type_script = "uid://cn6stq0vysadk"
