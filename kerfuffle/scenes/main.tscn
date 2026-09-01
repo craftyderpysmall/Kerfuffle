@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bhtyi2uxs8kyg"]
+
+[ext_resource type="PackedScene" uid="uid://dciikjqgorudi" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://mlroxt12nlwy" path="res://icon.svg" id="3_sugp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
+
+[node name="Main" type="Node2D" unique_id=13857101]
+y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=318788712]
+
+[node name="Player" parent="." unique_id=590145339 instance=ExtResource("1_o5qli")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2046324669]
+position = Vector2(0, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=332034820]
+position = Vector2(0, 40)
+scale = Vector2(6, 2)
+shape = SubResource("RectangleShape2D_12j5o")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1670472563]
+texture = ExtResource("3_sugp2")
