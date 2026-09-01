@@ -31,11 +31,10 @@ func _draw() -> void:
 	if not quadrants_enabled:
 		return
 	
-	var size: Vector2 = get_viewport_rect().size
-	var top_left := Vector2(-size.x / 2, -size.y / 2)
-	var top_right := Vector2(size.x / 2, -size.y / 2)
-	var bottom_left := Vector2(-size.x / 2, size.y / 2)
-	var bottom_right := Vector2(size.x / 2, size.y / 2)
+	var top_left := Vector2(-7680 / 2, -7680 / 2)
+	var top_right := Vector2(7680 / 2, -7680 / 2)
+	var bottom_left := Vector2(-7680 / 2, 7680 / 2)
+	var bottom_right := Vector2(7680 / 2, 7680 / 2)
 	var center := Vector2(0, 0)
 
 	draw_polygon(PackedVector2Array([top_left, top_right, center]), PackedColorArray([color_top]))

@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-@export var speed := 640.0
-@export var lean_amount := 6.0
+@export var speed := 320.0
+@export var lean_amount := 4.0
 @export var lean_speed := 6.0
-@export var quadrant_buffer_radius := 40.0
+@export var quadrant_buffer_radius := 35.0
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var player_sprite: AnimatedSprite2D = $PlayerSprite
 @onready var camera_2d: Camera2D = $"../Camera2D"
 
 var direction : Vector2 = Vector2.ZERO
@@ -32,15 +32,15 @@ func listen_movement() -> void:
 		
 func play_anim(movement_state : String) -> void:
 	if cursor_quadrant == 1: # Up
-		animated_sprite_2d.play(movement_state + "U") 
+		player_sprite.play(movement_state + "U") 
 	elif cursor_quadrant == 2: # Right
-		animated_sprite_2d.flip_h = false
-		animated_sprite_2d.play(movement_state + "R")
+		player_sprite.flip_h = false
+		player_sprite.play(movement_state + "R")
 	elif cursor_quadrant == 3: # Down
-		animated_sprite_2d.play(movement_state + "D")
+		player_sprite.play(movement_state + "D")
 	elif cursor_quadrant == 4: # Left
-		animated_sprite_2d.flip_h = true
-		animated_sprite_2d.play(movement_state + "R")
+		player_sprite.flip_h = true
+		player_sprite.play(movement_state + "R")
 
 func play_camera_lean(dir: Vector2, delta: float) -> void:
 	var target_lean := dir * lean_amount

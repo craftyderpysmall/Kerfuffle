@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://l7wn77w3y4b8" path="res://assets/moveR.png" id="5_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://cbfcsk1mys1no" path="res://assets/moveU.png" id="6_d2wvv"]
 [ext_resource type="Script" uid="uid://hlykpq45vx35" path="res://scripts/screen_split.gd" id="8_smehm"]
+[ext_resource type="Texture2D" uid="uid://b7waqydp1o51n" path="res://assets/shadow.png" id="8_ur7pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
 atlas = ExtResource("1_tuyoq")
@@ -297,12 +298,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pohj0"]
 
 [node name="Player" type="CharacterBody2D" unique_id=590145339]
-scale = Vector2(2.5, 2.5)
 script = ExtResource("1_fjrip")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1472397313]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1472397313]
 sprite_frames = SubResource("SpriteFrames_61ot5")
 animation = &"idleU"
+
+[node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1979510159]
+modulate = Color(1, 1, 1, 0.39215687)
+texture = ExtResource("8_ur7pv")
+offset = Vector2(0, 20)
 
 [node name="MovementHitbox" type="CollisionShape2D" parent="." unique_id=511089655]
 position = Vector2(0, 15)
@@ -317,10 +322,11 @@ scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_pohj0")
 
 [node name="ScreenSplitNode" type="Node2D" parent="." unique_id=1522158550]
+z_index = 100
 script = ExtResource("8_smehm")
-color_top = Color(0.8509804, 0.3019608, 0.3019608, 0.19607843)
-color_right = Color(0.3019608, 0.7490196, 0.34901962, 0.19607843)
-color_bottom = Color(0.3019608, 0.4509804, 0.8509804, 0.19607843)
-color_left = Color(0.9019608, 0.8, 0.2509804, 0.19607843)
-line_color = Color(1, 1, 1, 0.19607843)
+color_top = Color(0.8509804, 0.3019608, 0.3019608, 0.078431375)
+color_right = Color(0.3019608, 0.7490196, 0.34901962, 0.078431375)
+color_bottom = Color(0.3019608, 0.4509804, 0.8509804, 0.078431375)
+color_left = Color(0.9019608, 0.8, 0.2509804, 0.078431375)
+line_color = Color(1, 1, 1, 0.078431375)
 line_width = 1.0

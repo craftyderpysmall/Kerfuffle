@@ -13,7 +13,8 @@ y_sort_enabled = true
 [node name="Player" parent="." unique_id=590145339 instance=ExtResource("1_o5qli")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2046324669]
-position = Vector2(0, 200)
+position = Vector2(0, 106)
+scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=332034820]
 position = Vector2(0, 40)
@@ -21,4 +22,5 @@ scale = Vector2(6, 2)
 shape = SubResource("RectangleShape2D_12j5o")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1670472563]
+position = Vector2(0, -4)
 texture = ExtResource("3_sugp2")
