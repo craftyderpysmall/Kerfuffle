@@ -19,7 +19,7 @@ func _ready() -> void:
 	quadrant_buffer_radius = player.quadrant_buffer_radius
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("debug_mode"):
+	if event.is_action_pressed("debug_key"):
 		quadrants_enabled = not quadrants_enabled
 		queue_redraw()
 

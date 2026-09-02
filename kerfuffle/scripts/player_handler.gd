@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var quadrant_buffer_radius := 35.0
-@export var camera_lag_speed := 8.0 # speed at 320
+@export var camera_lag_speed := 8.0 # Speed at 320
 
 @onready var player_sprite: AnimatedSprite2D = $PlayerSprite
 @onready var camera: Camera2D = $Camera
@@ -11,13 +11,9 @@ var direction : Vector2 = Vector2.ZERO
 var cursor_quadrant := 3
 
 func _ready() -> void:
-	speed = PlayerData.get_speed()
-	camera.position_smoothing_speed = speed * (camera_lag_speed / 320)
+	update_speed()
 	
-	PlayerData.speed_changed.connect(func():
-		speed = PlayerData.get_speed()
-		camera.position_smoothing_speed = speed * (camera_lag_speed / 320)
-	)
+	PlayerData.speed_changed.connect(update_speed)
 
 func _process(_delta: float) -> void:
 	cursor_quadrant = get_quadrant(get_global_mouse_position(), global_position, cursor_quadrant)
@@ -70,3 +66,7 @@ func get_quadrant(pos: Vector2, center: Vector2, last_quadrant: int) -> int:
 		return 3 # Bottom
 	else:
 		return 4 # Left
+
+func update_speed() -> void:
+	speed = PlayerData.get_speed()
+	camera.position_smoothing_speed = speed * (camera_lag_speed / 320)
