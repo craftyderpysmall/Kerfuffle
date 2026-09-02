@@ -5,13 +5,11 @@ class_name PlayerStats
 @export var base_max_hearts := 5.0
 @export var base_damage := 0.5
 @export var base_speed := 320.0
-@export var base_armor := 0.0
 
 # --- Effective ---
 var max_hearts: float
 var damage: float
 var speed: float
-var armor: float
 
 # --- Current state ---
 var current_hearts: float
@@ -22,7 +20,6 @@ func reset_to_base() -> void:
 	max_hearts = base_max_hearts
 	damage = base_damage
 	speed = base_speed
-	armor = base_armor
 	on_hit_effects.clear()
 
 func recalculate(inventory: Dictionary) -> void:
