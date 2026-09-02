@@ -54,7 +54,7 @@ func take_item() -> void:
 
 # Stats
 
-func set_max_hearts(mode: String, value: float) -> void:
+func set_max_hearts(mode: String, value: float = 0) -> void:
 	var raw_max_hearts: float = stats.max_hearts
 	
 	if mode == "fix":
@@ -67,13 +67,17 @@ func set_max_hearts(mode: String, value: float) -> void:
 		raw_max_hearts *= (1 + value)
 		
 	var cooked_max_hearts: float = snapped(raw_max_hearts, 0.5)
-	stats.max_hearts = cooked_max_hearts	
+	
+	if cooked_max_hearts < stats.current_hearts:
+		stats.current_hearts = cooked_max_hearts
+	stats.max_hearts = cooked_max_hearts
+	
 	max_hearts_changed.emit()
 
 func get_max_hearts() -> float:
 	return stats.max_hearts
 	
-func set_damage(mode: String, value: float) -> void:
+func set_damage(mode: String, value: float = 0) -> void:
 	var raw_damage: float = stats.damage
 	
 	if mode == "fix":
@@ -92,7 +96,7 @@ func set_damage(mode: String, value: float) -> void:
 func get_damage() -> float:
 	return stats.damage
 	
-func set_speed(mode: String, value: float) -> void:
+func set_speed(mode: String, value: float = 0) -> void:
 	var raw_speed: float = stats.speed
 	
 	if mode == "fix":
@@ -111,7 +115,7 @@ func set_speed(mode: String, value: float) -> void:
 func get_speed() -> float:
 	return stats.speed
 	
-func set_current_hearts(mode: String, value: float) -> void:
+func set_current_hearts(mode: String, value: float = 0) -> void:
 	var raw_current_hearts: float = stats.current_hearts
 	
 	if mode == "fix":
@@ -122,12 +126,16 @@ func set_current_hearts(mode: String, value: float) -> void:
 		raw_current_hearts *= value
 	elif mode == "markup":
 		raw_current_hearts *= (1 + value)
+	elif mode == "max":
+		raw_current_hearts = stats.max_hearts
 		
 	var cooked_current_hearts: float = snapped(raw_current_hearts, 0.5)
+	
 	if cooked_current_hearts <= stats.max_hearts:
 		stats.current_hearts = cooked_current_hearts
 	else:
 		stats.current_hearts = stats.max_hearts
+		
 	current_hearts_changed.emit()
 
 func get_current_hearts() -> float:
