@@ -12,7 +12,6 @@ var cursor_quadrant := 3
 
 func _ready() -> void:
 	update_speed()
-	
 	PlayerData.speed_changed.connect(update_speed)
 
 func _process(_delta: float) -> void:

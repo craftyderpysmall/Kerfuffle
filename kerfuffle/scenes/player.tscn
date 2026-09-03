@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dciikjqgorudi"]
 
-[ext_resource type="Script" uid="uid://b4icah48p1hve" path="res://scripts/player_handler.gd" id="1_fjrip"]
+[ext_resource type="Script" uid="uid://b4icah48p1hve" path="res://scripts_attached/player_handler.gd" id="1_fjrip"]
 [ext_resource type="Texture2D" uid="uid://dx6ihpywmoevi" path="res://assets/idleD.png" id="1_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://hry4i6pce8e2" path="res://assets/idleR.png" id="2_fjrip"]
 [ext_resource type="Texture2D" uid="uid://dl0btf76tgijk" path="res://assets/idleU.png" id="3_smehm"]
 [ext_resource type="Texture2D" uid="uid://7dyfbio2hqd" path="res://assets/moveD.png" id="4_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://l7wn77w3y4b8" path="res://assets/moveR.png" id="5_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://cbfcsk1mys1no" path="res://assets/moveU.png" id="6_d2wvv"]
-[ext_resource type="Script" uid="uid://hlykpq45vx35" path="res://scripts/debug_mode.gd" id="8_smehm"]
+[ext_resource type="Script" uid="uid://hlykpq45vx35" path="res://scripts_attached/debug_mode.gd" id="8_smehm"]
 [ext_resource type="Texture2D" uid="uid://b7waqydp1o51n" path="res://assets/shadow.png" id="8_ur7pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bey5esmf7m1qa"]
+
+[ext_resource type="Script" uid="uid://cn6stq0vysadk" path="res://scripts_unattached/item_data.gd" id="1_7gysg"]
+[ext_resource type="Texture2D" uid="uid://v1twrmo58xjb" path="res://assets/camera.png" id="1_s3d4y"]
+
+[resource]
+script = ExtResource("1_7gysg")
+id = "base.item.mushroom_2"
+display_name = "Evil Mushroom"
+icon = ExtResource("1_s3d4y")
+stack_limit = -1
+stat_effects = Array[String](["set_max_hearts add -2.0 true"])
+metadata/_custom_type_script = "uid://cn6stq0vysadk"

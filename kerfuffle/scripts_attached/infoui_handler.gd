@@ -1,6 +1,9 @@
 extends Control
 
 @onready var heart_bar: HFlowContainer = $StatsContainer/HeartBar
+@onready var damage_label: Label = $StatsContainer/MiscStatsBar/Damage/Label
+@onready var speed_label: Label = $StatsContainer/MiscStatsBar/Speed/Label
+
 
 const ui_icon = preload("res://scenes/ui_icon.tscn")
 const heart_full = preload("res://assets/heart_full.png")
@@ -9,8 +12,11 @@ const heart_empty = preload("res://assets/heart_empty.png")
 
 func _ready() -> void:
 	draw_heartbar()
+	draw_misc_stats_bar()
 	PlayerData.max_hearts_changed.connect(draw_heartbar)
 	PlayerData.current_hearts_changed.connect(draw_heartbar)
+	PlayerData.damage_changed.connect(draw_misc_stats_bar)
+	PlayerData.speed_changed.connect(draw_misc_stats_bar)
 
 func draw_heartbar() -> void:
 	for child in heart_bar.get_children():
@@ -28,6 +34,10 @@ func draw_heartbar() -> void:
 			heart_instance.texture = heart_half
 		elif i == "Empty":
 			heart_instance.texture = heart_empty
+
+func draw_misc_stats_bar() -> void:
+	damage_label.text = Utility.circumcise_lenient(PlayerData.get_damage())
+	speed_label.text = Utility.circumcise_floor(PlayerData.get_speed())
 
 func calculate_hearts() -> Array:
 	var max_hearts: float = PlayerData.get_max_hearts()
