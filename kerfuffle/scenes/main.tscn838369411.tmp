@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bhtyi2uxs8kyg"]
+
+[ext_resource type="PackedScene" uid="uid://dciikjqgorudi" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bfugacp42ntwx" path="res://scripts/infoui_handler.gd" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://mlroxt12nlwy" path="res://icon.svg" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://dyax08kf5b2j7" path="res://scripts/admin_console.gd" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://v1twrmo58xjb" path="res://assets/camera.png" id="4_tbgi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
+
+[node name="Main" type="Node2D" unique_id=13857101]
+y_sort_enabled = true
+
+[node name="Player" parent="." unique_id=590145339 instance=ExtResource("1_o5qli")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2046324669]
+position = Vector2(0, 106)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=332034820]
+position = Vector2(0, 40)
+scale = Vector2(6, 2)
+shape = SubResource("RectangleShape2D_12j5o")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1670472563]
+position = Vector2(0, -4)
+texture = ExtResource("3_sugp2")
+
+[node name="PlayerUI" type="CanvasLayer" parent="." unique_id=262612655]
+
+[node name="PlayerInfo" type="Control" parent="PlayerUI" unique_id=1503125588]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_jyhfs")
+
+[node name="StatsContainer" type="VBoxContainer" parent="PlayerUI/PlayerInfo" unique_id=1387285787]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 624.0
+offset_bottom = 58.0
+
+[node name="HeartBar" type="HFlowContainer" parent="PlayerUI/PlayerInfo/StatsContainer" unique_id=379720676]
+layout_mode = 2
+
+[node name="MiscStatsBar" type="HBoxContainer" parent="PlayerUI/PlayerInfo/StatsContainer" unique_id=1450830581]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar" unique_id=2009777186]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("4_tbgi4")
+
+[node name="Label" type="Label" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar" unique_id=1465013144]
+layout_mode = 2
+text = "hi"
+
+[node name="AdminConsole" type="Node" parent="." unique_id=1925087064]
+script = ExtResource("4_jyhfs")

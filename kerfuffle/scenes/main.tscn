@@ -4,8 +4,19 @@
 [ext_resource type="Script" uid="uid://bfugacp42ntwx" path="res://scripts/infoui_handler.gd" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://mlroxt12nlwy" path="res://icon.svg" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://dyax08kf5b2j7" path="res://scripts/admin_console.gd" id="4_jyhfs"]
+[ext_resource type="Material" uid="uid://dvv8qk2ktoeub" path="res://shaders/drop_shadow_blue.tres" id="4_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://v1twrmo58xjb" path="res://assets/camera.png" id="4_tbgi4"]
+[ext_resource type="FontFile" uid="uid://cmcgpkpv82qsu" path="res://fonts/light_pixel-7.ttf" id="5_tefeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2h0ux"]
+font = ExtResource("5_tefeu")
+font_size = 8
+outline_size = 2
+outline_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+shadow_size = 2
+shadow_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
 [node name="Main" type="Node2D" unique_id=13857101]
 y_sort_enabled = true
@@ -51,6 +62,21 @@ offset_bottom = 58.0
 
 [node name="HeartBar" type="HFlowContainer" parent="PlayerUI/PlayerInfo/StatsContainer" unique_id=379720676]
 layout_mode = 2
+
+[node name="MiscStatsBar" type="HBoxContainer" parent="PlayerUI/PlayerInfo/StatsContainer" unique_id=1450830581]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar" unique_id=2009777186]
+material = ExtResource("4_o6xl0")
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("4_tbgi4")
+
+[node name="Label" type="Label" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar" unique_id=1465013144]
+layout_mode = 2
+size_flags_vertical = 8
+text = "100"
+label_settings = SubResource("LabelSettings_2h0ux")
 
 [node name="AdminConsole" type="Node" parent="." unique_id=1925087064]
 script = ExtResource("4_jyhfs")

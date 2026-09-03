@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://rgygirap2f7i"]
+
+[ext_resource type="Material" uid="uid://dvv8qk2ktoeub" path="res://shaders/drop_shadow_blue.tres" id="1_m4p65"]
+
+[node name="HeartUI" type="TextureRect" unique_id=1640095146]
+material = ExtResource("1_m4p65")
+size_flags_vertical = 0

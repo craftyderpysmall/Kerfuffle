@@ -2,7 +2,7 @@ extends Control
 
 @onready var heart_bar: HFlowContainer = $StatsContainer/HeartBar
 
-const heart_scene = preload("res://scenes/heart_ui.tscn")
+const ui_icon = preload("res://scenes/ui_icon.tscn")
 const heart_full = preload("res://assets/heart_full.png")
 const heart_half = preload("res://assets/heart_half.png")
 const heart_empty = preload("res://assets/heart_empty.png")
@@ -19,7 +19,7 @@ func draw_heartbar() -> void:
 	var hearts: Array = calculate_hearts()
 	
 	for i in hearts:
-		var heart_instance = heart_scene.instantiate()
+		var heart_instance = ui_icon.instantiate()
 		heart_bar.add_child(heart_instance)
 		
 		if i == "Whole":

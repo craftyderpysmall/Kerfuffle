@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dvv8qk2ktoeub"]
+
+[ext_resource type="Shader" uid="uid://bg2o2hybsaom1" path="res://shaders/shadow.gdshader" id="1_ygxl5"]
+
+[resource]
+shader = ExtResource("1_ygxl5")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(-1, -1)
+shader_parameter/color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+shader_parameter/blur_amount = 1.0000000475
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+shader_parameter/pivot = Vector2(0.5, 0.5)
