@@ -9,6 +9,7 @@ const default_inventory: PlayerInventory = preload("res://scripts_unattached/pla
 signal max_hearts_changed()
 signal damage_changed()
 signal speed_changed()
+signal luck_changed()
 signal current_hearts_changed()
 signal items_changed()
 
@@ -40,7 +41,7 @@ func set_max_hearts(mode: String, value: float = 0, scale: bool = false) -> void
 	
 	if scale == true:
 		var ratio: float = stats.current_hearts / stats.max_hearts
-		stats.current_hearts = snapped(cooked_max_hearts * ratio, 0.5)
+		stats.current_hearts = max(snapped(cooked_max_hearts * ratio, 0.5), 0.5)
 	if cooked_max_hearts < stats.current_hearts:
 		stats.current_hearts = cooked_max_hearts
 	stats.max_hearts = cooked_max_hearts
@@ -80,13 +81,32 @@ func set_speed(mode: String, value: float = 0) -> void:
 		raw_speed *= value
 	elif mode == "markup":
 		raw_speed *= (1 + value)
-		
+	
 	var cooked_speed: float = snapped(raw_speed, 0.1)
 	stats.speed = cooked_speed	
 	speed_changed.emit()
 
 func get_speed() -> float:
 	return stats.speed
+
+func set_luck(mode: String, value: float = 0) -> void:
+	var raw_luck: float = stats.luck
+	
+	if mode == "fix":
+		raw_luck = value
+	elif mode == "add":
+		raw_luck += value
+	elif mode == "multiply":
+		raw_luck *= value
+	elif mode == "markup":
+		raw_luck *= (1 + value)
+	
+	var cooked_luck: float = snapped(raw_luck, 0.1)
+	stats.luck = cooked_luck
+	luck_changed.emit()
+	
+func get_luck() -> float:
+	return stats.luck
 
 func set_current_hearts(mode: String, value: float = 0) -> void:
 	var raw_current_hearts: float = stats.current_hearts
@@ -137,9 +157,15 @@ func apply_effects(item: ItemData) -> void:
 		if has_method(func_name): callv(func_name, args)
 
 func recalculate_stats() -> void:
+	var saved_current_heart_ratio: float = stats.current_hearts / stats.max_hearts
+	
 	stats.reset()
+	
 	for item in inventory.items:
 		apply_effects(item)
+	
+	stats.current_hearts = snapped(stats.max_hearts * saved_current_heart_ratio, 0.5)
+	current_hearts_changed.emit()
 
 # Inventory
 

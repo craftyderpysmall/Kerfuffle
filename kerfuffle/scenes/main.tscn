@@ -5,22 +5,25 @@
 [ext_resource type="Texture2D" uid="uid://mlroxt12nlwy" path="res://icon.svg" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://dyax08kf5b2j7" path="res://scripts_attached/admin_console.gd" id="4_jyhfs"]
 [ext_resource type="Material" uid="uid://dvv8qk2ktoeub" path="res://shaders/drop_shadow_blue.tres" id="4_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://v1twrmo58xjb" path="res://assets/camera.png" id="4_tbgi4"]
-[ext_resource type="FontFile" uid="uid://cmcgpkpv82qsu" path="res://fonts/light_pixel-7.ttf" id="5_tefeu"]
 [ext_resource type="Texture2D" uid="uid://b442sriv7ea0u" path="res://assets/damage.png" id="5_tipki"]
+[ext_resource type="FontFile" uid="uid://wvvnqsbhs0fh" path="res://fonts/Pixelta.ttf" id="6_tipki"]
+[ext_resource type="Texture2D" uid="uid://cuyypqqspkys2" path="res://assets/speed.png" id="7_85g3d"]
+[ext_resource type="Texture2D" uid="uid://b7h3uwhfylm8b" path="res://assets/luck.png" id="8_choun"]
+
+[sub_resource type="TileSet" id="TileSet_85g3d"]
+tile_size = Vector2i(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12j5o"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_2h0ux"]
-font = ExtResource("5_tefeu")
-font_size = 8
-outline_size = 2
-outline_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
-shadow_size = 2
-shadow_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+[sub_resource type="FontVariation" id="FontVariation_12j5o"]
+base_font = ExtResource("6_tipki")
+spacing_glyph = 1
 
 [node name="Main" type="Node2D" unique_id=13857101]
 y_sort_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2021371408]
+tile_set = SubResource("TileSet_85g3d")
 
 [node name="Player" parent="." unique_id=590145339 instance=ExtResource("1_o5qli")]
 
@@ -77,28 +80,62 @@ texture = ExtResource("5_tipki")
 [node name="Label" type="Label" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar/Damage" unique_id=1465013144]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 8.0
+offset_top = 4.0
 offset_right = 37.0
-offset_bottom = 16.0
+offset_bottom = 18.0
 size_flags_vertical = 8
-text = "0"
-label_settings = SubResource("LabelSettings_2h0ux")
+theme_override_colors/font_shadow_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+theme_override_colors/font_outline_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontVariation_12j5o")
+theme_override_font_sizes/font_size = 12
+text = "?"
 
-[node name="Speed" type="TextureRect" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar" unique_id=1560816604]
+[node name="Speed" type="TextureRect" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar" unique_id=2104654444]
 material = ExtResource("4_o6xl0")
 layout_mode = 2
 size_flags_vertical = 0
-texture = ExtResource("4_tbgi4")
+texture = ExtResource("7_85g3d")
 
-[node name="Label" type="Label" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar/Speed" unique_id=767026133]
+[node name="Label" type="Label" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar/Speed" unique_id=1438988811]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 8.0
+offset_top = 4.0
 offset_right = 37.0
-offset_bottom = 16.0
+offset_bottom = 18.0
 size_flags_vertical = 8
-text = "0"
-label_settings = SubResource("LabelSettings_2h0ux")
+theme_override_colors/font_shadow_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+theme_override_colors/font_outline_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontVariation_12j5o")
+theme_override_font_sizes/font_size = 12
+text = "?"
+
+[node name="Luck" type="TextureRect" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar" unique_id=1507234258]
+material = ExtResource("4_o6xl0")
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("8_choun")
+
+[node name="Label" type="Label" parent="PlayerUI/PlayerInfo/StatsContainer/MiscStatsBar/Luck" unique_id=253800274]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 4.0
+offset_right = 37.0
+offset_bottom = 18.0
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+theme_override_colors/font_outline_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontVariation_12j5o")
+theme_override_font_sizes/font_size = 12
+text = "?"
 
 [node name="AdminConsole" type="Node" parent="." unique_id=1925087064]
 script = ExtResource("4_jyhfs")
